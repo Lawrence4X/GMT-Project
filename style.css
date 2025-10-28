@@ -1,0 +1,62 @@
+/* style.css - simple modern layout */
+:root{
+  --blue: #0b63c6;
+  --bg: #f6f8fb;
+  --panel: #ffffff;
+  --muted: #666;
+  --shadow: rgba(0,0,0,0.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Roboto,Arial,sans-serif;background:var(--bg);color:#111}
+.topbar{
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  background:linear-gradient(0deg,var(--blue),#1a76e6);
+  color:white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  position:fixed;
+  left:0;right:0;top:0;z-index:50;
+}
+.brand{font-weight:700;font-size:18px}
+.search{display:flex;align-items:center;gap:8px}
+.search input{
+  height:34px;padding:6px 10px;border-radius:6px;border:0;min-width:220px;
+  outline:none;
+}
+.search button{
+  height:34px;padding:6px 10px;border-radius:6px;border:0;background:#fff;color:var(--blue);cursor:pointer;font-weight:600;
+}
+
+/* main stage */
+#stage{position:absolute;left:0;right:0;top:56px;bottom:0;display:flex}
+#canvasHolder{flex:1;position:relative;overflow:hidden;background:linear-gradient(#98c8f6 0%,#cbebff 40%,#f0f9ff 100%)}
+
+/* loader */
+#loaderBar{position:absolute;left:0;right:0;top:8px;height:6px;background:rgba(255,255,255,0.6)}
+#loaderProgress{height:100%;width:0;background:var(--blue);transition:width .2s}
+
+/* info panel on right */
+#infoPanel{
+  width:320px;background:var(--panel);box-shadow: -6px 0 20px var(--shadow);padding:12px;
+  display:flex;flex-direction:column;gap:8px;
+  border-left:1px solid #eee;
+}
+#infoPanel.hidden{display:none}
+.panelHeader{display:flex;justify-content:space-between;align-items:center}
+#infoTitle{font-weight:700}
+#attrs{overflow:auto;flex:1;padding:4px}
+.attrRow{display:flex;justify-content:space-between;padding:6px 4px;border-bottom:1px solid #f2f2f2}
+.attrRow .k{color:var(--muted);font-size:13px}
+.attrRow .v{font-weight:600;font-size:13px;text-align:right}
+.panelFooter{display:flex;gap:8px;justify-content:flex-end}
+.panelFooter button{padding:6px 10px;border-radius:6px;border:0;background:#eee;cursor:pointer}
+
+/* small screens */
+@media (max-width:800px){
+  #infoPanel{position:absolute;right:8px;top:68px;width:90%;max-width:360px;z-index:60}
+  .search input{min-width:120px}
+}

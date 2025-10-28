@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lawrence Model — University of Pretoria</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./style.css" />
+  <!-- three.js and helpers (adjust paths if your threejs folder differs) -->
+  <script src="./threejs/three.min.js"></script>
+  <script src="./threejs/OrbitControls.js"></script>
+  <script src="./threejs/GLTFLoader.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">University of Pretoria</div>
+    <div class="search">
+      <input id="searchBox" type="search" placeholder="Search object name..." />
+      <button id="searchBtn">Search</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div id="canvasHolder">
+      <!-- renderer will append canvas here -->
+      <div id="loaderBar"><div id="loaderProgress"></div></div>
+    </div>
+
+    <!-- attribute / info panel -->
+    <aside id="infoPanel" class="hidden">
+      <div class="panelHeader">
+        <span id="infoTitle">Selected object</span>
+        <button id="closeInfo">✕</button>
+      </div>
+      <div id="attrs"></div>
+      <div class="panelFooter">
+        <button id="zoomBtn">Zoom to object</button>
+        <button id="clearSelection">Clear</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>
